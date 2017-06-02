@@ -7,23 +7,20 @@
 
   <body>
   <?php
-  	if( !isset($_GET['name'],$_GET['nr'],$_GET['mf'],$_GET['pw']) ||
-  		strlen($_GET['name']) == 0 ||
-  		strlen($_GET['nr']) == 0 ||
-  		strlen($_GET['mf']) == 0 ||
-  		strlen($_GET['pw']) == 0
-  	)
-  	{
-  		echo 'Missing Data';
+  	if( !isset($_POST['name'],$_POST['nr'],$_POST['mf'],$_POST['pw']) ||
+      // strlenで文字列の長さを取得してる
+  		strlen($_POST['name']) == 0 ||
+  		strlen($_POST['nr']) == 0 ||
+  		strlen($_POST['mf']) == 0 ||
+  		strlen($_POST['pw']) == 0) {
+    		echo 'Missing Data';
+  	} else {
+        // 配列をループで処理する
+    		foreach($_POST as $k => $v) {
+    			echo "$k is $v.";
+    			echo "<br>";
+    		}
   	}
-  	else
-  	{
-  		foreach($_GET as $k => $v)
-  		{
-  			echo "$k is $v.";
-  			echo "<br>";
-  		}
-  		}
   ?>
   </body>
 
